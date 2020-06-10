@@ -6,8 +6,9 @@
 jobs:
 
 - job: Android
+  # https://docs.microsoft.com/azure/devops/pipelines/ecosystems/xamarin
   pool:
-    vmImage: 'VS2017-Win2016'
+  vmImage: 'macOS-10.15' # For Windows, use 'windows-2019'
 
   variables:
     buildConfiguration: 'Release'
@@ -22,7 +23,7 @@ jobs:
 
   - task: XamarinAndroid@1
     inputs:
-      projectFile: '**/*droid*.csproj'
+      projectFile: '**/*Droid*.csproj'
       outputDirectory: '$(outputDirectory)'
       configuration: '$(buildConfiguration)'
 
